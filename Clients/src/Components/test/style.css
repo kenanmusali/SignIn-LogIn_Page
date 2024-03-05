@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "DM Mono", monospace;
+
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    background: no-repeat url('../Background/background.png');
+    background-size: cover;
+    cursor: url('../Cursor/CursorClassic.png'), auto !important;
+}
+
+.login-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed black;
+    width: fit-content;
+    padding: 4.5rem 3rem;
+    background-color: #FEE8EC;
+}
+
+input {
+    border: 1px dashed black;
+    background-color: #FEE8EC;
+    height: 3rem;
+    width: 22rem;
+    padding-inline: 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    width: 22rem;
+    cursor: pointer;
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.login {
+    background-color: #1458B4;
+    color: white;
+    font-size: 1rem;
+    margin-top: 2rem;
+}
+
+.signin {
+    border: 1px dashed black;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+.userName {
+    margin-bottom: 1vw;
+}
+
+
+a:hover {
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+    cursor: pointer;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+}
+
+a:hover,
+input:hover,
+button:hover {
+    cursor: url('../Cursor/CursorClassic.png'), pointer !important;
+}
+
+.login:hover {
+    background-color: black;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+}
+
+.signin:hover {
+    background-color: #3BA9FF;
+    border: 1px dashed black;
+    color: black;
+    cursor: pointer;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+}
+
+
+
+input:focus {
+    outline: none;
+    background-color: #FED3C0;
+
+  }
+

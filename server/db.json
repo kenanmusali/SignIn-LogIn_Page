@@ -1,0 +1,56 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "username": "@kenan",
+      "password": "kenan523",
+      "todos": [
+        {
+          "id": 1,
+          "title": "lorem1"
+        },
+        {
+          "id": 2,
+          "title": "lorem1"
+        },
+        {
+          "id": 3,
+          "title": "lorem1"
+        },
+        {
+          "id": 4,
+          "title": "what's pop in"
+        },
+        {
+          "id": 5,
+          "title": "demo"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "username": "@ken",
+      "password": "ken523",
+      "todos": []
+    },
+    {
+      "id": "3",
+      "username": "@kenanmusali",
+      "password": "kenanmusali523",
+      "todos": [
+        {
+          "id": 1,
+          "title": "lorem3"
+        },
+        {
+          "id": 2,
+          "title": "lorem3"
+        },
+        {
+          "id": 3,
+          "title": "lorem3"
+        }
+      ]
+    }
+  ]
+}

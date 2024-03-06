@@ -1,29 +1,57 @@
 import React, { useState } from 'react';
 import './style.css';
 
-const LoginMenu = ({ isLoginMode, setIsLoginMode, setUser }) => {
+const LoginMenu = ({ setIsLoginMode, setUser }) => {
+    const [isLogin, setIsLogin] = useState(true);
 
     const toggleMode = () => {
-        setIsLoginMode(!isLoginMode);
+        setIsLogin(!isLogin);
+        setFormData({
+            userid: "",
+            passwordid: ""
+        });
     };
 
     const [formData, setFormData] = useState({
         userid: "",
-        passwordid: ""
-    })
+        passwordid: "",
+        todos:[]
+    });
 
     const loginUser = (e) => {
         e.preventDefault();
-        fetch(`http://localhost:3000/data?username=${formData.userid}&password=${formData.passwordid}`)
-            .then(res => res.json())
-            .then(data => {
-                if (data.length) {
+
+        if (!formData.userid || !formData.passwordid) {
+            alert("Please enter username and password.");
+            return;
+        }
+
+        if (isLogin) {
+            fetch(`http://localhost:3000/data?username=${formData.userid}&password=${formData.passwordid}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.length) {
+                        setIsLoginMode(true);
+                        setUser(data[0]);
+                    } else {
+                        alert("Username not found.");
+                    }
+                });
+        } else {
+            fetch('http://localhost:3000/data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    setIsLogin(true);
                     setIsLoginMode(true);
-                    setUser(data[0])
-                } else {
-                    alert("Username not Found.");
-                }
-            });
+                    setUser(data);
+                });
+        }
     };
 
     return (
@@ -31,15 +59,17 @@ const LoginMenu = ({ isLoginMode, setIsLoginMode, setUser }) => {
             <div className='userName'>
                 <p>User Name</p>
                 <input type="text" placeholder='@' required maxLength={25}
+                    value={formData.userid}
                     onChange={(e) => setFormData({ ...formData, userid: e.target.value })} />
             </div>
             <div>
                 <p>Password</p>
                 <input type="password" required maxLength={50}
+                    value={formData.passwordid}
                     onChange={(e) => setFormData({ ...formData, passwordid: e.target.value })} />
             </div>
-            <a onClick={loginUser} className='login'>{isLoginMode ? 'Sign In' : 'Log In'}</a>
-            <a className='signin' onClick={toggleMode}>{isLoginMode ? 'Already have Account?' : 'No Account? Create One.'}</a>
+            <a onClick={loginUser} className='login'>{isLogin ? 'Log In' : 'Sign In'}</a>
+            <a onClick={toggleMode} className='signin'>{isLogin ? 'No Account? Create One.' : 'Already have Account?'}</a>
         </div>
     );
 };
